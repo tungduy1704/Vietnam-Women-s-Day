@@ -1,2 +1,2 @@
 # Vietnam-Women-s-Day
-Lời chúc 20-10
+Chúc tất cả chị em phụ nữ ngày 20-11 thật hạnh phúc.
