@@ -1,96 +1,412 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chúc mừng Ngày Phụ nữ Việt Nam 💖</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chúc mừng Ngày Phụ nữ Việt Nam 💖</title>
 
-  <!-- Open Graph để Zalo/Facebook hiển thị preview -->
-  <meta property="og:title" content="💖 Lời chúc 20/10 dành riêng cho bạn" />
-  <meta property="og:description" content="Chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!" />
-  <meta property="og:image" content="https://your-domain.com/og-image.jpg" />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://your-domain.com/wish.html" />
+<!-- Open Graph cho Zalo/Facebook preview (ĐỔI og:image sang ảnh thật trong repo của bạn) -->
+<meta property="og:title" content="💖 Lời chúc 20/10 dành riêng cho bạn" />
+<meta property="og:description" content="Chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!" />
+<meta property="og:image" content="https://tungduy1704.github.io/Vietnam-Women-s-Day/og-image.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tungduy1704.github.io/Vietnam-Women-s-Day/wish.html" />
 
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      min-height:100vh;
-      background: linear-gradient(135deg,#ff6b9d 0%, #c06c84 50%, #6c5b7b 100%);
-      color:#fff; overflow-x:hidden; position:relative;
-      display:flex; align-items:center; justify-content:center; padding:28px;
-    }
-    .card{
-      width:min(720px,100%); background:rgba(255,255,255,.95); color:#422a3a;
-      border-radius:28px; padding:40px 28px; box-shadow:0 24px 70px rgba(0,0,0,.35);
-      backdrop-filter: blur(10px); position:relative; z-index:2;
-      animation: rise .7s ease-out both;
-    }
-    @keyframes rise{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
-    h1{font-size:2.2rem; text-align:center; color:#c2185b; margin-bottom:10px}
-    .badge{display:block; text-align:center; margin:0 auto 22px; padding:10px 22px;
-      border-radius:999px; background:#ffe5f0; color:#c2185b; font-weight:700; width:max-content}
-    p.lead{font-size:1.15rem; text-align:center; color:#5a3b4b; margin-bottom:18px; font-style:italic}
-    ul{list-style:none; display:grid; gap:12px; margin:14px 0}
-    li{
-      background:linear-gradient(135deg,#ffeef8 0%, #ffe5f0 100%);
-      padding:14px 16px; border-radius:14px; display:flex; gap:12px; align-items:flex-start;
-      box-shadow:0 6px 20px rgba(233,30,99,.18)
-    }
-    .closing{
-      margin-top:18px; text-align:center; font-weight:700;
-      background:linear-gradient(135deg,#e91e63 0%, #c2185b 100%);
-      color:#fff; padding:14px; border-radius:16px; box-shadow:0 12px 26px rgba(233,30,99,.35)
-    }
-    .flowers{font-size:2rem; text-align:center; margin-top:18px}
-    .flower{position:fixed; top:-50px; font-size:28px; animation:fall linear infinite; opacity:.9; z-index:1}
-    @keyframes fall{to{transform:translateY(100vh) rotate(360deg)}}
-    @media (max-width:520px){ h1{font-size:1.7rem} .card{padding:28px 18px} }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+min-height:100vh;
+background: linear-gradient(135deg,#ff6b9d 0%, #c06c84 50%, #6c5b7b 100%);
+color:#fff; overflow-x:hidden; position:relative;
+display:flex; align-items:center; justify-content:center; padding:28px;
+}
+.card{
+width:min(720px,100%); background:rgba(255,255,255,.95); color:#422a3a;
+border-radius:28px; padding:40px 28px; box-shadow:0 24px 70px rgba(0,0,0,.35);
+backdrop-filter: blur(10px); position:relative; z-index:2;
+animation: rise .7s ease-out both;
+}
+@keyframes rise{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+h1{font-size:2.2rem; text-align:center; color:#c2185b; margin-bottom:10px}
+.badge{display:block; text-align:center; margin:0 auto 22px; padding:10px 22px;
+border-radius:999px; background:#ffe5f0; color:#c2185b; font-weight:700; width:max-content}
+p.lead{font-size:1.15rem; text-align:center; color:#5a3b4b; margin-bottom:18px; font-style:italic}
+ul{list-style:none; display:grid; gap:12px; margin:14px 0}
+li{
+background:linear-gradient(135deg,#ffeef8 0%, #ffe5f0 100%);
+padding:14px 16px; border-radius:14px; display:flex; gap:12px; align-items:flex-start;
+box-shadow:0 6px 20px rgba(233,30,99,.18)
+}
+.closing{
+margin-top:18px; text-align:center; font-weight:700;
+background:linear-gradient(135deg,#e91e63 0%, #c2185b 100%);
+color:#fff; padding:14px; border-radius:16px; box-shadow:0 12px 26px rgba(233,30,99,.35)
+}
+.flowers{font-size:2rem; text-align:center; margin-top:18px}
+.flower{position:fixed; top:-50px; font-size:28px; animation:fall linear infinite; opacity:.9; z-index:1}
+@keyframes fall{to{transform:translateY(100vh) rotate(360deg)}}
+@media (max-width:520px){ h1{font-size:1.7rem} .card{padding:28px 18px} }
 
-    /* Nút phát nhạc */
-    .play-btn{
-      position:fixed; inset:auto 16px 16px auto;
-      padding:12px 18px; border:0; border-radius:999px;
-      background:#c2185b; color:#fff; font-weight:700; cursor:pointer;
-      box-shadow:0 8px 24px rgba(194,24,91,.4); z-index:3;
-      transition:transform .15s;
-    }
-    .play-btn:active{ transform:scale(.95) }
-  </style>
+/* Nút phát nhạc nổi */
+.play-btn{
+position:fixed; right:16px; bottom:16px;
+padding:12px 18px; border:0; border-radius:999px;
+background:#c2185b; color:#fff; font-weight:700; cursor:pointer;
+box-shadow:0 8px 24px rgba(194,24,91,.4); z-index:3;
+transition:transform .15s;
+}
+.play-btn:active{ transform:scale(.95) }
+
+/* Overlay yêu cầu bấm (khi autoplay bị chặn) */
+.gate{
+position:fixed; inset:0; background:rgba(0,0,0,.55);
+display:none; align-items:center; justify-content:center; z-index:4;
+padding:24px; text-align:center;
+}
+.gate .panel{
+background:#ffffff; color:#4a2c3c; border-radius:20px; padding:22px 18px; width:min(440px,92%);
+box-shadow:0 16px 50px rgba(0,0,0,.35)
+}
+.gate .panel h3{margin-bottom:8px; color:#c2185b}
+.gate .panel p{margin-bottom:14px}
+.gate .panel button{
+padding:12px 16px; border-radius:999px; border:0; background:#c2185b; color:#fff; font-weight:700; cursor:pointer;
+}
+
+/* Thanh gợi ý mở ngoài trình duyệt (hữu ích khi ở trong in-app webview) */
+.open-external {
+position:fixed; left:50%; transform:translateX(-50%);
+top:10px; z-index:5; background:rgba(255,255,255,.95); color:#4a2c3c;
+border-radius:999px; padding:8px 14px; font-size:.9rem; box-shadow:0 6px 20px rgba(0,0,0,.2);
+display:none;
+}
+.open-external a{ color:#c2185b; font-weight:700; text-decoration:none }
+</style>
 </head>
 <body>
+<!-- Nhạc nền (đặt file mp3 cùng thư mục với wish.html) -->
+<audio id="bgm" preload="auto"
+src="https://tungduy1704.github.io/Vietnam-Women-s-Day/cheerful-joyful-playful-music-399359.mp3"
+playsinline></audio>
 
-  <audio id="bgm" preload="auto" src="cheerful-joyful-playful-music-399359.mp3"></audio>
-  <button id="play" class="play-btn" aria-label="Phát nhạc nền">🔈 Phát nhạc</button>
+<!-- Nút nhỏ ở góc để phát/đổi trạng thái -->
+<button id="play" class="play-btn" aria-label="Phát nhạc nền">🔈 Phát nhạc</button>
 
-  <!-- hiệu ứng hoa rơi -->
-  <script>
-    const emojis=['🌹','🌸','🌺','🌷','🌻','💐','🌼','💮'];
-    function drop(){const f=document.createElement('div'); f.className='flower';
-      f.textContent=emojis[Math.random()*emojis.length|0];
-      f.style.left=Math.random()*100+'%'; f.style.animationDuration=(5+Math.random()*3)+'s';
-      f.style.animationDelay=(Math.random()*1.5)+'s'; document.body.appendChild(f);
-      setTimeout(()=>f.remove(),8000);}
-    setInterval(drop,300); for(let i=0;i<10;i++) setTimeout(drop,i*180);
-  </script>
+<!-- Gợi ý mở ngoài trình duyệt -->
+<div id="ext" class="open-external">
+Nếu không nghe nhạc, hãy <a id="openExternal" href="#" rel="noopener">mở bằng trình duyệt ngoài</a>.
+</div>
 
-  <!-- Nội dung thiệp -->
-  <main class="card" role="main" aria-label="Lời chúc 20/10">
-    <h1>💖 Chúc Mừng Ngày Phụ nữ Việt Nam 💖</h1>
-    <span class="badge">20 • 10 • 2025</span>
-    <p class="lead">Kính gửi người phụ nữ tuyệt vời — chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!</p>
-    <ul>
-      <li>🌸 <div><b>Vẻ đẹp rạng rỡ:</b> Mãi tươi trẻ, rạng ngời với nụ cười luôn nở trên môi.</div></li>
-      <li>💪 <div><b>Sức mạnh nội tâm:</b> Vững vàng, tự tin và là nguồn cảm hứng cho mọi người.</div></li>
-      <li>✨ <div><b>Thành công bền vững:</b> Gặt hái thành tựu xứng đáng với nỗ lực không ngừng.</div></li>
-      <li>❤️ <div><b>Hạnh phúc viên mãn:</b> Gia đình ấm áp, tình yêu bền vững, luôn được trân trọng.</div></li>
-      <li>🌟 <div><b>Lan tỏa tích cực:</b> Mang yêu thương và niềm vui đến mọi nơi bạn đến.</div></li>
-    </ul>
-    <div class="closing">💝 Chúc bạn một ngày 20/10 thật ý nghĩa và trọn vẹn! 💝</div>
-    <div class="flowers">🌹 🌸 🌺 🌷 🌻</div>
-  </main>
-  </script>
+<!-- Overlay yêu cầu chạm khi autoplay bị chặn -->
+<div id="gate" class="gate" role="dialog" aria-modal="true" aria-label="Nhấn để bật nhạc">
+<div class="panel">
+<h3>🎶 Nhấn để bật nhạc</h3>
+<p>Trình duyệt đã chặn phát tự động. Chạm nút bên dưới để nghe nhạc nền.</p>
+<button id="gateBtn">Bật nhạc</button>
+</div>
+</div>
+
+<!-- hiệu ứng hoa rơi -->
+<script>
+const emojis=['🌹','🌸','🌺','🌷','🌻','💐','🌼','💮'];
+function drop(){const f=document.createElement('div'); f.className='flower';
+f.textContent=emojis[Math.random()*emojis.length|0];
+f.style.left=Math.random()*100+'%'; f.style.animationDuration=(5+Math.random()*3)+'s';
+f.style.animationDelay=(Math.random()*1.5)+'s'; document.body.appendChild(f);
+setTimeout(()=>f.remove(),8000);}
+setInterval(drop,300); for(let i=0;i<10;i++) setTimeout(drop,i*180);
+</script>
+
+<!-- Nội dung thiệp -->
+<main class="card" role="main" aria-label="Lời chúc 20/10">
+<h1>💖 Chúc Mừng Ngày Phụ nữ Việt Nam 💖</h1>
+<span class="badge">20 • 10 • 2025</span>
+<p class="lead">Kính gửi người phụ nữ tuyệt vời — chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!</p>
+<ul>
+<li>🌸 <div><b>Vẻ đẹp rạng rỡ:</b> Mãi tươi trẻ, rạng ngời với nụ cười luôn nở trên môi.</div></li>
+<li>💪 <div><b>Sức mạnh nội tâm:</b> Vững vàng, tự tin và là nguồn cảm hứng cho mọi người.</div></li>
+<li>✨ <div><b>Thành công bền vững:</b> Gặt hái thành tựu xứng đáng với nỗ lực không ngừng.</div></li>
+<li>❤️ <div><b>Hạnh phúc viên mãn:</b> Gia đình ấm áp, tình yêu bền vững, luôn được trân trọng.</div></li>
+<li>🌟 <div><b>Lan tỏa tích cực:</b> Mang yêu thương và niềm vui đến mọi nơi bạn đến.</div></li>
+</ul>
+<div class="closing">💝 Chúc bạn một ngày 20/10 thật ý nghĩa và trọn vẹn! 💝</div>
+<div class="flowers">🌹 🌸 🌺 🌷 🌻</div>
+</main>
+
+<!-- Script phát nhạc: autoplay mồi + fallback thân thiện webview -->
+<script>
+const bgm = document.getElementById('bgm');
+const playBtn = document.getElementById('play');
+const gate = document.getElementById('gate');
+const gateBtn = document.getElementById('gateBtn');
+const extBar = document.getElementById('ext');
+const openExt = document.getElementById('openExternal');
+
+// đường dẫn tuyệt đối giúp load ổn định
+bgm.src = "https://tungduy1704.github.io/Vietnam-Women-s-Day/cheerful-joyful-playful-music-399359.mp3";
+
+function setPlayingUI(p){ playBtn.textContent = p ? "🔊 Đang phát" : "🔈 Phát nhạc"; }
+function showGate(b){ gate.style.display = b ? 'flex' : 'none'; }
+
+// kiểm tra mở trong app
+function isInApp(){return /zalo|fbav|line|instagram|tiktok|micromessenger/i.test(navigator.userAgent);}
+function openInBrowser(e){e.preventDefault(); window.open(location.href, '_blank');}
+
+async function safePlay(){
+try {
+bgm.loop = true;
+bgm.volume = 0.4;
+
+// khởi tạo AudioContext để “mồi”
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
+const src = ctx.createMediaElementSource(bgm);
+src.connect(ctx.destination);
+await ctx.resume();
+
+await bgm.play();
+setPlayingUI(true);
+showGate(false);
+} catch(err) {
+console.log("Play blocked:", err);
+showGate(true);
+}
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+if(isInApp()){
+extBar.style.display='block';
+openExt.addEventListener('click', openInBrowser);
+}
+
+// thử tự phát, nếu thất bại sẽ hiện gate
+try {
+await bgm.play();
+setPlayingUI(true);
+} catch {
+showGate(true);
+}
+
+// đảm bảo tương tác thật sự
+const trigger = async ()=>{await safePlay(); cleanup();};
+const cleanup = ()=>['pointerdown','touchstart','click','keydown']
+.forEach(e=>document.removeEventListener(e,trigger));
+['pointerdown','touchstart','click','keydown']
+.forEach(e=>document.addEventListener(e,trigger,{once:true}));
+});
+
+playBtn.addEventListener('click', safePlay);
+gateBtn.addEventListener('click', safePlay);
+</script>
+
 </body>
 </html>
+
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chúc mừng Ngày Phụ nữ Việt Nam 💖</title>
+
+<!-- Open Graph cho Zalo/Facebook preview (ĐỔI og:image sang ảnh thật trong repo của bạn) -->
+<meta property="og:title" content="💖 Lời chúc 20/10 dành riêng cho bạn" />
+<meta property="og:description" content="Chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!" />
+<meta property="og:image" content="https://tungduy1704.github.io/Vietnam-Women-s-Day/og-image.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tungduy1704.github.io/Vietnam-Women-s-Day/wish.html" />
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+min-height:100vh;
+background: linear-gradient(135deg,#ff6b9d 0%, #c06c84 50%, #6c5b7b 100%);
+color:#fff; overflow-x:hidden; position:relative;
+display:flex; align-items:center; justify-content:center; padding:28px;
+}
+.card{
+width:min(720px,100%); background:rgba(255,255,255,.95); color:#422a3a;
+border-radius:28px; padding:40px 28px; box-shadow:0 24px 70px rgba(0,0,0,.35);
+backdrop-filter: blur(10px); position:relative; z-index:2;
+animation: rise .7s ease-out both;
+}
+@keyframes rise{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+h1{font-size:2.2rem; text-align:center; color:#c2185b; margin-bottom:10px}
+.badge{display:block; text-align:center; margin:0 auto 22px; padding:10px 22px;
+border-radius:999px; background:#ffe5f0; color:#c2185b; font-weight:700; width:max-content}
+p.lead{font-size:1.15rem; text-align:center; color:#5a3b4b; margin-bottom:18px; font-style:italic}
+ul{list-style:none; display:grid; gap:12px; margin:14px 0}
+li{
+background:linear-gradient(135deg,#ffeef8 0%, #ffe5f0 100%);
+padding:14px 16px; border-radius:14px; display:flex; gap:12px; align-items:flex-start;
+box-shadow:0 6px 20px rgba(233,30,99,.18)
+}
+.closing{
+margin-top:18px; text-align:center; font-weight:700;
+background:linear-gradient(135deg,#e91e63 0%, #c2185b 100%);
+color:#fff; padding:14px; border-radius:16px; box-shadow:0 12px 26px rgba(233,30,99,.35)
+}
+.flowers{font-size:2rem; text-align:center; margin-top:18px}
+.flower{position:fixed; top:-50px; font-size:28px; animation:fall linear infinite; opacity:.9; z-index:1}
+@keyframes fall{to{transform:translateY(100vh) rotate(360deg)}}
+@media (max-width:520px){ h1{font-size:1.7rem} .card{padding:28px 18px} }
+
+/* Nút phát nhạc nổi */
+.play-btn{
+position:fixed; right:16px; bottom:16px;
+padding:12px 18px; border:0; border-radius:999px;
+background:#c2185b; color:#fff; font-weight:700; cursor:pointer;
+box-shadow:0 8px 24px rgba(194,24,91,.4); z-index:3;
+transition:transform .15s;
+}
+.play-btn:active{ transform:scale(.95) }
+
+/* Overlay yêu cầu bấm (khi autoplay bị chặn) */
+.gate{
+position:fixed; inset:0; background:rgba(0,0,0,.55);
+display:none; align-items:center; justify-content:center; z-index:4;
+padding:24px; text-align:center;
+}
+.gate .panel{
+background:#ffffff; color:#4a2c3c; border-radius:20px; padding:22px 18px; width:min(440px,92%);
+box-shadow:0 16px 50px rgba(0,0,0,.35)
+}
+.gate .panel h3{margin-bottom:8px; color:#c2185b}
+.gate .panel p{margin-bottom:14px}
+.gate .panel button{
+padding:12px 16px; border-radius:999px; border:0; background:#c2185b; color:#fff; font-weight:700; cursor:pointer;
+}
+
+/* Thanh gợi ý mở ngoài trình duyệt (hữu ích khi ở trong in-app webview) */
+.open-external {
+position:fixed; left:50%; transform:translateX(-50%);
+top:10px; z-index:5; background:rgba(255,255,255,.95); color:#4a2c3c;
+border-radius:999px; padding:8px 14px; font-size:.9rem; box-shadow:0 6px 20px rgba(0,0,0,.2);
+display:none;
+}
+.open-external a{ color:#c2185b; font-weight:700; text-decoration:none }
+</style>
+</head>
+<body>
+<!-- Nhạc nền (đặt file mp3 cùng thư mục với wish.html) -->
+<audio id="bgm" preload="auto"
+src="https://tungduy1704.github.io/Vietnam-Women-s-Day/cheerful-joyful-playful-music-399359.mp3"
+playsinline></audio>
+
+<!-- Nút nhỏ ở góc để phát/đổi trạng thái -->
+<button id="play" class="play-btn" aria-label="Phát nhạc nền">🔈 Phát nhạc</button>
+
+<!-- Gợi ý mở ngoài trình duyệt -->
+<div id="ext" class="open-external">
+Nếu không nghe nhạc, hãy <a id="openExternal" href="#" rel="noopener">mở bằng trình duyệt ngoài</a>.
+</div>
+
+<!-- Overlay yêu cầu chạm khi autoplay bị chặn -->
+<div id="gate" class="gate" role="dialog" aria-modal="true" aria-label="Nhấn để bật nhạc">
+<div class="panel">
+<h3>🎶 Nhấn để bật nhạc</h3>
+<p>Trình duyệt đã chặn phát tự động. Chạm nút bên dưới để nghe nhạc nền.</p>
+<button id="gateBtn">Bật nhạc</button>
+</div>
+</div>
+
+<!-- hiệu ứng hoa rơi -->
+<script>
+const emojis=['🌹','🌸','🌺','🌷','🌻','💐','🌼','💮'];
+function drop(){const f=document.createElement('div'); f.className='flower';
+f.textContent=emojis[Math.random()*emojis.length|0];
+f.style.left=Math.random()*100+'%'; f.style.animationDuration=(5+Math.random()*3)+'s';
+f.style.animationDelay=(Math.random()*1.5)+'s'; document.body.appendChild(f);
+setTimeout(()=>f.remove(),8000);}
+setInterval(drop,300); for(let i=0;i<10;i++) setTimeout(drop,i*180);
+</script>
+
+<!-- Nội dung thiệp -->
+<main class="card" role="main" aria-label="Lời chúc 20/10">
+<h1>💖 Chúc Mừng Ngày Phụ nữ Việt Nam 💖</h1>
+<span class="badge">20 • 10 • 2025</span>
+<p class="lead">Kính gửi người phụ nữ tuyệt vời — chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!</p>
+<ul>
+<li>🌸 <div><b>Vẻ đẹp rạng rỡ:</b> Mãi tươi trẻ, rạng ngời với nụ cười luôn nở trên môi.</div></li>
+<li>💪 <div><b>Sức mạnh nội tâm:</b> Vững vàng, tự tin và là nguồn cảm hứng cho mọi người.</div></li>
+<li>✨ <div><b>Thành công bền vững:</b> Gặt hái thành tựu xứng đáng với nỗ lực không ngừng.</div></li>
+<li>❤️ <div><b>Hạnh phúc viên mãn:</b> Gia đình ấm áp, tình yêu bền vững, luôn được trân trọng.</div></li>
+<li>🌟 <div><b>Lan tỏa tích cực:</b> Mang yêu thương và niềm vui đến mọi nơi bạn đến.</div></li>
+</ul>
+<div class="closing">💝 Chúc bạn một ngày 20/10 thật ý nghĩa và trọn vẹn! 💝</div>
+<div class="flowers">🌹 🌸 🌺 🌷 🌻</div>
+</main>
+
+<!-- Script phát nhạc: autoplay mồi + fallback thân thiện webview -->
+<script>
+const bgm = document.getElementById('bgm');
+const playBtn = document.getElementById('play');
+const gate = document.getElementById('gate');
+const gateBtn = document.getElementById('gateBtn');
+const extBar = document.getElementById('ext');
+const openExt = document.getElementById('openExternal');
+
+// đường dẫn tuyệt đối giúp load ổn định
+bgm.src = "https://tungduy1704.github.io/Vietnam-Women-s-Day/cheerful-joyful-playful-music-399359.mp3";
+
+function setPlayingUI(p){ playBtn.textContent = p ? "🔊 Đang phát" : "🔈 Phát nhạc"; }
+function showGate(b){ gate.style.display = b ? 'flex' : 'none'; }
+
+// kiểm tra mở trong app
+function isInApp(){return /zalo|fbav|line|instagram|tiktok|micromessenger/i.test(navigator.userAgent);}
+function openInBrowser(e){e.preventDefault(); window.open(location.href, '_blank');}
+
+async function safePlay(){
+try {
+bgm.loop = true;
+bgm.volume = 0.4;
+
+// khởi tạo AudioContext để “mồi”
+const ctx = new (window.AudioContext || window.webkitAudioContext)();
+const src = ctx.createMediaElementSource(bgm);
+src.connect(ctx.destination);
+await ctx.resume();
+
+await bgm.play();
+setPlayingUI(true);
+showGate(false);
+} catch(err) {
+console.log("Play blocked:", err);
+showGate(true);
+}
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+if(isInApp()){
+extBar.style.display='block';
+openExt.addEventListener('click', openInBrowser);
+}
+
+// thử tự phát, nếu thất bại sẽ hiện gate
+try {
+await bgm.play();
+setPlayingUI(true);
+} catch {
+showGate(true);
+}
+
+// đảm bảo tương tác thật sự
+const trigger = async ()=>{await safePlay(); cleanup();};
+const cleanup = ()=>['pointerdown','touchstart','click','keydown']
+.forEach(e=>document.removeEventListener(e,trigger));
+['pointerdown','touchstart','click','keydown']
+.forEach(e=>document.addEventListener(e,trigger,{once:true}));
+});
+
+playBtn.addEventListener('click', safePlay);
+gateBtn.addEventListener('click', safePlay);
+</script>
+
+</body>
+</html>
+
+
 
