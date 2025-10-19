@@ -1,1 +1,300 @@
-resonance
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>💖 Lời chúc 20/10 dành riêng cho bạn</title>
+
+<!-- Open Graph / Twitter -->
+<meta property="og:title" content="💖 Lời chúc 20/10 dành riêng cho bạn" />
+<meta property="og:description" content="Chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!" />
+<meta property="og:image" content="https://tungduy1704.github.io/Vietnam-Women-s-Day/og-image.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://tungduy1704.github.io/Vietnam-Women-s-Day/wish.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#c2185b; --pink-2:#e91e63; --ink:#422a3a;
+  --card-bg:rgba(255,255,255,.96);
+}
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  min-height:100vh; color:#fff; overflow-x:hidden; position:relative;
+  display:flex; align-items:center; justify-content:center; padding:28px;
+  background: radial-gradient(1200px 1200px at 20% 10%, #ffb3c7 0%, transparent 60%),
+              radial-gradient(1000px 1000px at 80% 20%, #b39ddb 0%, transparent 60%),
+              linear-gradient(135deg,#ff6b9d 0%, #c06c84 50%, #6c5b7b 100%);
+}
+
+/* Animated soft glow (reduced for prefers-reduced-motion) */
+@media (prefers-reduced-motion: no-preference){
+  body::after{
+    content:""; position:fixed; inset:-50%;
+    background: conic-gradient(from 45deg, #fff0 0 70%, rgba(255,255,255,.08) 85% 100%);
+    filter: blur(80px); animation: spin 36s linear infinite;
+    pointer-events:none; z-index:0;
+  }
+  @keyframes spin{to{transform:rotate(1turn)}}
+}
+
+.card{
+  width:min(760px,100%); background:var(--card-bg); color:var(--ink);
+  border-radius:28px; padding:40px 22px; box-shadow:0 24px 70px rgba(0,0,0,.35);
+  backdrop-filter: blur(10px); position:relative; z-index:2;
+  animation: rise .6s ease-out both;
+}
+@keyframes rise{from{opacity:0; transform:translateY(16px)} to{opacity:1; transform:none}}
+
+header{display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:8px}
+h1{font-size:2.2rem; text-align:center; color:var(--pink); line-height:1.2}
+.badge{display:block; text-align:center; margin:6px auto 14px; padding:8px 16px;
+  border-radius:999px; background:#ffe5f0; color:var(--pink); font-weight:700; width:max-content}
+.greet{font-size:1.05rem; text-align:center; color:#5a3b4b; margin-bottom:8px}
+.name{font-weight:800; color:var(--pink-2)}
+.quote{font-size:1.1rem; text-align:center; color:#4a2c3c; font-style:italic; margin:8px auto 12px; max-width:48ch}
+
+ul{list-style:none; display:grid; gap:12px; margin:16px 0}
+li{
+  background:linear-gradient(135deg,#fff1f8 0%, #ffe5f0 100%);
+  padding:14px 16px; border-radius:16px; display:flex; gap:12px; align-items:flex-start;
+  box-shadow:0 6px 18px rgba(233,30,99,.16)
+}
+
+.closing{
+  margin-top:16px; text-align:center; font-weight:800;
+  background:linear-gradient(135deg,var(--pink-2) 0%, var(--pink) 100%);
+  color:#fff; padding:14px; border-radius:16px; box-shadow:0 12px 26px rgba(233,30,99,.35)
+}
+.flowers{font-size:2rem; text-align:center; margin-top:16px}
+
+/* Controls */
+.controls{
+  margin-top:18px; display:flex; flex-wrap:wrap; gap:10px; justify-content:center
+}
+.btn{
+  padding:10px 14px; border:0; border-radius:999px; cursor:pointer; font-weight:700;
+  background:var(--pink); color:#fff; box-shadow:0 8px 24px rgba(194,24,91,.35);
+  transition:transform .15s, filter .15s;
+}
+.btn.secondary{ background:#ffe5f0; color:var(--pink); box-shadow:0 6px 16px rgba(194,24,91,.20) }
+.btn:active{ transform:scale(.96) }
+.small{ font-size:.95rem }
+
+/* Floating petals */
+.flower{position:fixed; top:-50px; font-size:28px; animation:fall linear infinite; opacity:.9; z-index:1}
+@keyframes fall{to{transform:translateY(105vh) rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){
+  .flower{display:none}
+}
+
+/* In-app webview hint */
+.open-external {
+  position:fixed; left:50%; transform:translateX(-50%);
+  top:10px; z-index:5; background:rgba(255,255,255,.96); color:#4a2c3c;
+  border-radius:999px; padding:8px 14px; font-size:.9rem; box-shadow:0 6px 20px rgba(0,0,0,.2);
+  display:none;
+}
+.open-external a{ color:var(--pink); font-weight:700; text-decoration:none }
+
+/* Corner play button */
+.play-btn{
+  position:fixed; right:16px; bottom:16px;
+  padding:12px 18px; border:0; border-radius:999px;
+  background:var(--pink); color:#fff; font-weight:700; cursor:pointer;
+  box-shadow:0 8px 24px rgba(194,24,91,.4); z-index:4;
+}
+
+/* Typewriter for custom message (optional) */
+.type{
+  --caret: var(--pink);
+  border-right: 3px solid var(--caret);
+  white-space: nowrap; overflow: hidden; display:inline-block
+}
+@keyframes caretblink{50%{border-color:transparent}}
+.type.caret{animation: caretblink .9s step-end infinite}
+@media (max-width:520px){ h1{font-size:1.7rem} .card{padding:28px 18px} }
+</style>
+</head>
+<body>
+<!-- Audio -->
+<audio id="bgm" preload="auto" playsinline loop
+  src="https://tungduy1704.github.io/Vietnam-Women-s-Day/Harmony-of-the-Earth-chosic.com_.mp3"></audio>
+
+<!-- Buttons -->
+<button id="play" class="play-btn" aria-label="Phát nhạc nền">🔈 Phát nhạc</button>
+
+<!-- WebView hint -->
+<div id="ext" class="open-external" role="alert">
+  Nếu không nghe nhạc, hãy <a id="openExternal" href="#" rel="noopener">mở bằng trình duyệt ngoài</a>.
+</div>
+
+<!-- Card -->
+<main class="card" role="main" aria-label="Lời chúc 20/10">
+  <header>
+    <h1>💖 Chúc Mừng Ngày Phụ Nữ Việt Nam 💖</h1>
+    <span id="dateBadge" class="badge">20 • 10 • 2025</span>
+    <p class="greet">
+      Gửi <span id="toName" class="name">bạn</span>,
+      <span id="shortMsg" class="type caret"></span>
+    </p>
+    <p id="quote" class="quote" aria-live="polite"></p>
+  </header>
+
+  <ul aria-label="Lời chúc dành tặng">
+    <li>🌸 <div><b>Vẻ đẹp rạng rỡ:</b> Mãi tươi trẻ, rạng ngời với nụ cười luôn nở trên môi.</div></li>
+    <li>💪 <div><b>Sức mạnh nội tâm:</b> Vững vàng, tự tin và là nguồn cảm hứng cho mọi người.</div></li>
+    <li>✨ <div><b>Thành công bền vững:</b> Gặt hái thành tựu xứng đáng với nỗ lực không ngừng.</div></li>
+    <li>❤️ <div><b>Hạnh phúc viên mãn:</b> Gia đình ấm áp, tình yêu bền vững, luôn được trân trọng.</div></li>
+    <li>🌟 <div><b>Lan tỏa tích cực:</b> Mang yêu thương và niềm vui đến mọi nơi bạn đến.</div></li>
+  </ul>
+
+  <div class="closing">💝 Chúc bạn một ngày 20/10 thật ý nghĩa và trọn vẹn! 💝</div>
+  <div class="flowers" aria-hidden="true">🌹 🌸 🌺 🌷 🌻</div>
+
+  <div class="controls">
+    <button id="share" class="btn small">📤 Chia sẻ</button>
+    <button id="copy" class="btn secondary small">🔗 Sao chép liên kết</button>
+    <button id="confetti" class="btn secondary small">🎉 Rắc kim tuyến</button>
+  </div>
+</main>
+
+<script>
+/* ---------- Utilities ---------- */
+const $ = sel => document.querySelector(sel);
+const bgm = $('#bgm'), playBtn = $('#play'), extBar = $('#ext'), openExt = $('#openExternal');
+
+function isInApp(){return /zalo|fbav|line|instagram|tiktok|micromessenger/i.test(navigator.userAgent);}
+function openInBrowser(e){e.preventDefault(); window.open(location.href, '_blank');}
+function setPlayingUI(p){ playBtn.textContent = p ? "🔊 Đang phát" : "🔈 Phát nhạc"; }
+
+/* Smooth volume fade */
+function fadeTo(vol, ms=900){
+  const steps=28, start=bgm.volume||0, step=(vol-start)/steps;
+  let i=0; const iv=setInterval(()=>{
+    i++; bgm.volume = Math.max(0, Math.min(1, start + step*i));
+    if(i>=steps){ bgm.volume = vol; clearInterval(iv); }
+  }, Math.max(16, ms/steps));
+}
+
+/* Autoplay muted, unmute on first interaction */
+async function autoplayMuted(){
+  try{ bgm.muted = true; bgm.volume = 0.0; await bgm.play(); setPlayingUI(true); }
+  catch{ setPlayingUI(false); }
+}
+async function unmuteAndFade(){
+  try{
+    if(bgm.paused) await bgm.play();
+    if(bgm.muted || bgm.volume === 0){
+      bgm.muted = false; fadeTo(.45, 900); setPlayingUI(true);
+    } else { // toggle pause/play
+      if(!bgm.paused){ bgm.pause(); setPlayingUI(false); } else { await bgm.play(); setPlayingUI(true); }
+    }
+  }catch{}
+}
+function attachFirstInteraction(){
+  const once = async () => { await unmuteAndFade(); cleanup(); };
+  const cleanup = () => events.forEach(evt=>document.removeEventListener(evt, once));
+  const events = ['pointerdown','touchstart','click','keydown','scroll'];
+  events.forEach(evt=>document.addEventListener(evt, once, { once:true, passive:true }));
+}
+
+/* Floating petals */
+const emojis=['🌹','🌸','🌺','🌷','🌻','💐','🌼','💮'];
+function drop(){
+  const f=document.createElement('div'); f.className='flower';
+  f.textContent=emojis[Math.random()*emojis.length|0];
+  f.style.left=Math.random()*100+'%';
+  f.style.animationDuration=(5+Math.random()*3)+'s';
+  f.style.animationDelay=(Math.random()*1.5)+'s';
+  document.body.appendChild(f); setTimeout(()=>f.remove(),8000);
+}
+
+/* Light confetti (emoji burst) */
+function sprinkle(n=36){
+  for(let i=0;i<n;i++){ setTimeout(drop, i*60); }
+}
+
+/* Typewriter */
+async function typeText(el, text, speed=26){
+  el.textContent = ""; el.classList.add('caret');
+  for(const ch of text){ el.textContent += ch; await new Promise(r=>setTimeout(r, speed)); }
+  el.classList.add('caret');
+}
+
+/* URL params: ?to=Ten&msg=Loi%20nhan */
+function getParams(){
+  const u=new URL(location.href), to=u.searchParams.get('to'), msg=u.searchParams.get('msg');
+  return {to, msg};
+}
+
+/* Share & copy link */
+async function sharePage(){
+  const {to}=getParams();
+  const title="Lời chúc 20/10 💖";
+  const text = `Gửi ${to||"bạn"} — thiệp 20/10 dành riêng cho bạn 💐`;
+  const url = location.href;
+  if(navigator.share){
+    try{ await navigator.share({title, text, url}); }catch(e){}
+  }else{
+    await copyLink();
+    alert("Đã sao chép liên kết vào clipboard!");
+  }
+}
+async function copyLink(){
+  try{ await navigator.clipboard.writeText(location.href); }
+  catch{ /* fallback */ const t=document.createElement('textarea'); t.value=location.href;
+    document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); }
+}
+
+/* Today label (if không đúng 20/10) */
+function setDateBadge(){
+  const d=new Date();
+  const dd=String(d.getDate()).padStart(2,'0');
+  const mm=String(d.getMonth()+1).padStart(2,'0');
+  const yyyy=d.getFullYear();
+  const badge = `${dd} • ${mm} • ${yyyy}`;
+  const el = $('#dateBadge');
+  el.textContent = badge;
+}
+
+/* Init */
+document.addEventListener('DOMContentLoaded', async () => {
+  // In-app hint
+  if(isInApp()){ extBar.style.display='block'; openExt.addEventListener('click', openInBrowser); }
+
+  // Date badge
+  setDateBadge();
+
+  // Personalization
+  const {to, msg} = getParams();
+  if(to){ $('#toName').textContent = to; }
+  const short = msg || "chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!";
+  typeText($('#shortMsg'), short);
+
+  // Optional rotating quotes (swap if custom msg not provided)
+  const quotes = [
+    "Bạn xứng đáng với mọi điều ngọt ngào nhất hôm nay. ✨",
+    "Cảm ơn bạn vì đã lan tỏa yêu thương mỗi ngày. 💞",
+    "Mong mọi ước mơ của bạn đều nở hoa. 🌸"
+  ];
+  const q = $('#quote');
+  if(!msg){ q.textContent = quotes[Math.random()*quotes.length|0]; }
+
+  // Music
+  await autoplayMuted(); attachFirstInteraction();
+
+  // Petals
+  for(let i=0;i<12;i++) setTimeout(drop, i*160); // initial
+  setInterval(()=>{ if(matchMedia("(prefers-reduced-motion: no-preference)").matches) drop(); }, 360);
+
+  // Buttons
+  $('#share').addEventListener('click', sharePage);
+  $('#copy').addEventListener('click', async ()=>{ await copyLink(); playBtn.focus(); });
+  $('#confetti').addEventListener('click', ()=>sprinkle(28));
+  playBtn.addEventListener('click', unmuteAndFade);
+});
+</script>
+</body>
+</html>
