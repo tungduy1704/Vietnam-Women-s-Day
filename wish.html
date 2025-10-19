@@ -167,10 +167,16 @@ await ctx.resume();
 await bgm.play();
 setPlayingUI(true);
 showGate(false);
-} catch(err) {
-console.log("Play blocked:", err);
-showGate(true);
+} catch {
+  // nếu bị chặn, tự đăng ký sự kiện đầu tiên người dùng chạm
+  console.log("Autoplay bị chặn, đợi tương tác đầu tiên để phát nhạc...");
+  const oncePlay = async () => { await safePlay(); cleanup(); };
+  const cleanup  = () => ['pointerdown','touchstart','click','keydown']
+    .forEach(e=>document.removeEventListener(e, oncePlay));
+  ['pointerdown','touchstart','click','keydown']
+    .forEach(e=>document.addEventListener(e, oncePlay, { once:true }));
 }
+
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -201,6 +207,7 @@ gateBtn.addEventListener('click', safePlay);
 
 </body>
 </html>
+
 
 
 
