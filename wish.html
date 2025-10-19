@@ -136,95 +136,71 @@
 
   <!-- Script phát nhạc: autoplay mồi + fallback thân thiện webview -->
   <script>
-    const bgm      = document.getElementById('bgm');
-    const playBtn  = document.getElementById('play');
-    const gate     = document.getElementById('gate');
-    const gateBtn  = document.getElementById('gateBtn');
-    const extBar   = document.getElementById('ext');
-    const openExt  = document.getElementById('openExternal');
+const bgm = document.getElementById('bgm');
+const playBtn = document.getElementById('play');
+const gate = document.getElementById('gate');
+const gateBtn = document.getElementById('gateBtn');
+const extBar = document.getElementById('ext');
+const openExt = document.getElementById('openExternal');
 
-    // Phát thử để "unmute" trên iOS: play muted rồi pause
-    function primeIOSAudio(){
-      try{
-        bgm.muted = true;
-        const p = bgm.play();
-        if (p && typeof p.then === 'function'){
-          p.then(()=>{
-            bgm.pause();
-            bgm.currentTime = 0;
-            bgm.muted = false;
-          }).catch(()=>{ bgm.muted = false; });
-        } else {
-          bgm.muted = false;
-        }
-      }catch(_){}
-    }
+// đường dẫn tuyệt đối giúp load ổn định
+bgm.src = "https://tungduy1704.github.io/Vietnam-Women-s-Day/cheerful-joyful-playful-music-399359.mp3";
 
-    function isInAppWebView(){
-      const ua = navigator.userAgent.toLowerCase();
-      // nhận diện nhanh một số webview phổ biến (Zalo/FB/Insta/TikTok)
-      return /zalo|fbav|fb_iab|line|instagram|tiktok|micromessenger/.test(ua);
-    }
+function setPlayingUI(p){ playBtn.textContent = p ? "🔊 Đang phát" : "🔈 Phát nhạc"; }
+function showGate(b){ gate.style.display = b ? 'flex' : 'none'; }
 
-    function showGate(show=true){ gate.style.display = show ? 'flex' : 'none'; }
-    function setPlayingUI(playing){
-      playBtn.textContent = playing ? '🔊 Đang phát' : '🔈 Phát nhạc';
-    }
+// kiểm tra mở trong app
+function isInApp(){return /zalo|fbav|line|instagram|tiktok|micromessenger/i.test(navigator.userAgent);}
+function openInBrowser(e){e.preventDefault(); window.open(location.href, '_blank');}
 
-    async function tryPlay(){
-      try{
-        bgm.volume = 0.35;
-        bgm.loop   = true;
-        await bgm.play();
-        setPlayingUI(true);
-        showGate(false);
-        return true;
-      }catch(e){
-        setPlayingUI(false);
-        showGate(true);
-        return false;
-      }
-    }
+async function safePlay(){
+  try {
+    bgm.loop = true;
+    bgm.volume = 0.4;
 
-    function openInExternalBrowser(e){
-      e.preventDefault();
-      // mở tab mới; nhiều in-app webview sẽ hỏi chuyển sang trình duyệt ngoài
-      window.open(location.href, '_blank', 'noopener,noreferrer');
-    }
+    // khởi tạo AudioContext để “mồi”
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const src = ctx.createMediaElementSource(bgm);
+    src.connect(ctx.destination);
+    await ctx.resume();
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    primeIOSAudio();
+    await bgm.play();
+    setPlayingUI(true);
+    showGate(false);
+  } catch(err) {
+    console.log("Play blocked:", err);
+    showGate(true);
+  }
+}
 
-    const inWebView = isInAppWebView();
+document.addEventListener('DOMContentLoaded', async () => {
+  if(isInApp()){
+    extBar.style.display='block';
+    openExt.addEventListener('click', openInBrowser);
+  }
 
-    // Gợi ý mở ngoài nếu nghi ở webview
-    if (inWebView){
-      extBar.style.display = 'block';
-      openExt.addEventListener('click', openInExternalBrowser);
-      // Ép yêu cầu chạm ngay, tránh autoplay thất bại âm thầm
-      setPlayingUI(false);
-      showGate(true);
-      // đăng ký gesture để phát khi người dùng chạm/phím
-      const oncePlay = async () => { await tryPlay(); cleanup(); };
-      const cleanup  = () => {
-        ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.removeEventListener(ev, oncePlay));
-      };
-      ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev, oncePlay, { once:true }));
-      return;
-    }
+  // thử tự phát, nếu thất bại sẽ hiện gate
+  try {
+    await bgm.play();
+    setPlayingUI(true);
+  } catch {
+    showGate(true);
+  }
 
-    // Trường hợp mở bằng trình duyệt thật: thử autoplay trước
-    const ok = await tryPlay();
-    if (!ok){
-      const oncePlay = async () => { await tryPlay(); cleanup(); };
-      const cleanup  = () => {
-        ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.removeEventListener(ev, oncePlay));
-      };
-      ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev, oncePlay, { once:true }));
-    }
-  });
+  // đảm bảo tương tác thật sự
+  const trigger = async ()=>{await safePlay(); cleanup();};
+  const cleanup = ()=>['pointerdown','touchstart','click','keydown']
+    .forEach(e=>document.removeEventListener(e,trigger));
+  ['pointerdown','touchstart','click','keydown']
+    .forEach(e=>document.addEventListener(e,trigger,{once:true}));
+});
+
+playBtn.addEventListener('click', safePlay);
+gateBtn.addEventListener('click', safePlay);
 </script>
+
 </body>
 </html>
+
 
 
