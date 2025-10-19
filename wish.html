@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chúc mừng 20/10 💖</title>
+
+  <!-- Open Graph để Zalo/Facebook hiển thị preview đẹp -->
+  <meta property="og:title" content="💖 Lời chúc 20/10 dành riêng cho bạn" />
+  <meta property="og:description" content="Chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!" />
+  <meta property="og:image" content="https://your-domain.com/og-image.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com/wish.html" />
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      min-height:100vh;
+      background: linear-gradient(135deg,#ff6b9d 0%, #c06c84 50%, #6c5b7b 100%);
+      color:#fff; overflow-x:hidden; position:relative;
+      display:flex; align-items:center; justify-content:center; padding:28px;
+    }
+    .card{
+      width:min(720px,100%); background:rgba(255,255,255,.95); color:#422a3a;
+      border-radius:28px; padding:40px 28px; box-shadow:0 24px 70px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px); position:relative; z-index:2;
+      animation: rise .7s ease-out both;
+    }
+    @keyframes rise{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+    h1{font-size:2.2rem; text-align:center; color:#c2185b; margin-bottom:10px}
+    .badge{display:block; text-align:center; margin:0 auto 22px; padding:10px 22px;
+      border-radius:999px; background:#ffe5f0; color:#c2185b; font-weight:700; width:max-content}
+    p.lead{font-size:1.15rem; text-align:center; color:#5a3b4b; margin-bottom:18px; font-style:italic}
+    ul{list-style:none; display:grid; gap:12px; margin:14px 0}
+    li{
+      background:linear-gradient(135deg,#ffeef8 0%, #ffe5f0 100%);
+      padding:14px 16px; border-radius:14px; display:flex; gap:12px; align-items:flex-start;
+      box-shadow:0 6px 20px rgba(233,30,99,.18)
+    }
+    .closing{
+      margin-top:18px; text-align:center; font-weight:700;
+      background:linear-gradient(135deg,#e91e63 0%, #c2185b 100%);
+      color:#fff; padding:14px; border-radius:16px; box-shadow:0 12px 26px rgba(233,30,99,.35)
+    }
+    .flowers{font-size:2rem; text-align:center; margin-top:18px}
+    /* Hoa rơi */
+    .flower{position:fixed; top:-50px; font-size:28px; animation:fall linear infinite; opacity:.9; z-index:1}
+    @keyframes fall{to{transform:translateY(100vh) rotate(360deg)}}
+    @media (max-width:520px){ h1{font-size:1.7rem} .card{padding:28px 18px} }
+  </style>
+</head>
+<body>
+  <!-- hiệu ứng hoa rơi -->
+  <script>
+    const emojis=['🌹','🌸','🌺','🌷','🌻','💐','🌼','💮'];
+    function drop(){const f=document.createElement('div'); f.className='flower';
+      f.textContent=emojis[Math.random()*emojis.length|0];
+      f.style.left=Math.random()*100+'%'; f.style.animationDuration=(5+Math.random()*3)+'s';
+      f.style.animationDelay=(Math.random()*1.5)+'s'; document.body.appendChild(f);
+      setTimeout(()=>f.remove(),8000);}
+    setInterval(drop,300); for(let i=0;i<10;i++) setTimeout(drop,i*180);
+  </script>
+
+  <main class="card" role="main" aria-label="Lời chúc 20/10">
+    <h1>💖 Chúc Mừng 20/10 💖</h1>
+    <span class="badge">20 • 10</span>
+    <p class="lead">Kính gửi người phụ nữ tuyệt vời — chúc bạn luôn rạng rỡ, hạnh phúc và được yêu thương mỗi ngày!</p>
+    <ul>
+      <li>🌸 <div><b>Vẻ đẹp rạng rỡ:</b> Mãi tươi trẻ, rạng ngời với nụ cười luôn nở trên môi.</div></li>
+      <li>💪 <div><b>Sức mạnh nội tâm:</b> Vững vàng, tự tin và là nguồn cảm hứng cho mọi người.</div></li>
+      <li>✨ <div><b>Thành công bền vững:</b> Gặt hái thành tựu xứng đáng với nỗ lực không ngừng.</div></li>
+      <li>❤️ <div><b>Hạnh phúc viên mãn:</b> Gia đình ấm áp, tình yêu bền vững, luôn được trân trọng.</div></li>
+      <li>🌟 <div><b>Lan tỏa tích cực:</b> Mang yêu thương và niềm vui đến mọi nơi bạn đến.</div></li>
+    </ul>
+    <div class="closing">💝 Chúc bạn một ngày 20/10 thật ý nghĩa và trọn vẹn! 💝</div>
+    <div class="flowers">🌹 🌸 🌺 🌷 🌻</div>
+  </main>
+</body>
+</html>
