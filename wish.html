@@ -190,42 +190,38 @@
       window.open(location.href, '_blank', 'noopener,noreferrer');
     }
 
-    document.addEventListener('DOMContentLoaded', async () => {
-      primeIOSAudio();
+  document.addEventListener('DOMContentLoaded', async () => {
+    primeIOSAudio();
 
-      // gợi ý mở ngoài nếu nghi ở webview
-      if (isInAppWebView()){
-        extBar.style.display = 'block';
-        openExt.addEventListener('click', openInExternalBrowser);
-      }
+    const inWebView = isInAppWebView();
 
-      // cố autoplay; nếu bị chặn sẽ hiện gate
-      const ok = await tryPlay();
-      if (!ok){
-        // đăng ký các gesture để phát khi người dùng chạm/phím
-        const oncePlay = async () => { await tryPlay(); cleanup(); };
-        const cleanup  = () => {
-          ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.removeEventListener(ev, oncePlay));
-        };
-        ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev, oncePlay, { once:true }));
-      }
-    });
+    // Gợi ý mở ngoài nếu nghi ở webview
+    if (inWebView){
+      extBar.style.display = 'block';
+      openExt.addEventListener('click', openInExternalBrowser);
+      // Ép yêu cầu chạm ngay, tránh autoplay thất bại âm thầm
+      setPlayingUI(false);
+      showGate(true);
+      // đăng ký gesture để phát khi người dùng chạm/phím
+      const oncePlay = async () => { await tryPlay(); cleanup(); };
+      const cleanup  = () => {
+        ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.removeEventListener(ev, oncePlay));
+      };
+      ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev, oncePlay, { once:true }));
+      return;
+    }
 
-    // Nút nổi
-    playBtn.addEventListener('click', async () => {
-      if (bgm.paused){ await tryPlay(); }
-      else { bgm.pause(); setPlayingUI(false); }
-    });
-
-    // Nút trong overlay
-    gateBtn.addEventListener('click', tryPlay);
-
-    // Khi quay lại tab (ví dụ chuyển app -> quay lại), thử phát lại nếu đã dừng
-    document.addEventListener('visibilitychange', async () => {
-      if (!document.hidden && bgm.paused){
-        await tryPlay();
-      }
-    });
-  </script>
+    // Trường hợp mở bằng trình duyệt thật: thử autoplay trước
+    const ok = await tryPlay();
+    if (!ok){
+      const oncePlay = async () => { await tryPlay(); cleanup(); };
+      const cleanup  = () => {
+        ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.removeEventListener(ev, oncePlay));
+      };
+      ['pointerdown','touchstart','keydown','click'].forEach(ev=>document.addEventListener(ev, oncePlay, { once:true }));
+    }
+  });
+</script>
 </body>
 </html>
+
