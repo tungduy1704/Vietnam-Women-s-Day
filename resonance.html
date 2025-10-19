@@ -256,7 +256,7 @@ async function copyLink(){
 }
 async function sharePage(){
   const p=params(); const title="Thiệp 20/10 💖";
-  const text=`Gửi ${p.to||"bạn"} — thiệp mở cánh dành riêng cho bạn.`;
+  const text=`Gửi ${p.to||"bạn"} — Một món quà dành cho bạn.`;
   if(navigator.share){ try{ await navigator.share({title, text, url:location.href}); }catch{} }
   else{ await copyLink(); alert("Đã sao chép liên kết vào clipboard!"); }
 }
